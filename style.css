@@ -1,0 +1,636 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 16px;
+  font-family: 'Commissioner', sans-serif;
+  background-color: hsl(0, 0%, 95%);
+}
+
+body.active{
+  background-color: rgba(26, 26, 26, 0.5);
+}
+
+.nav-wrap.active{
+  background-color: rgba(26, 26, 26, 0.5);
+  filter: brightness(60%);
+}
+
+main.active{
+  z-index: -1;
+}
+
+/* HEADER */
+header{
+  background:url(./images/image-hero-desktop.jpg) no-repeat;
+  background-size:cover;
+  height:400px;
+}
+
+.nav-wrap{
+  height: 400px;
+  padding:60px 180px;
+  background:url(./images/logo.svg) no-repeat;
+  background-position: 180px 60px;
+  display: grid;
+}
+
+.hamburger-icon{
+  display: none;
+}
+
+.nav-wrap ul{
+  justify-self:end;
+}
+
+.nav-wrap li{
+  list-style: none;
+  display: inline-block;
+}
+
+.nav-wrap a{
+  text-decoration: none;
+  color: white;
+  margin-left:20px;
+}
+
+/* MAIN */
+main{
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  gap:30px 0;
+  position: relative;
+  top:-100px;
+}
+
+.main-card{
+  width:700px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  padding:30px;
+}
+
+.top-card{
+  text-align: center;
+  display: grid;
+  align-items:center;
+  justify-items:center;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 0% auto auto auto ;
+  grid-template-areas:"logo logo"
+  "bigtxt bigtxt"
+  "smalltxt smalltxt"
+  "backButton bookmark";
+  padding:50px 20px 20px 20px;
+}
+
+.top-card img{
+  grid-area: logo;
+  position: relative;
+  top:-50px;
+}
+
+.top-card h2{
+  grid-area: bigtxt;
+}
+
+.top-card p{
+  grid-area: smalltxt;
+}
+
+.back-button{
+  grid-area: backButton;
+  outline:none;
+}
+
+.back-button button{
+  padding:10px 30px;
+  background-color:hsl(176, 50%, 47%);
+  border:none;
+  color:white;
+  border-radius: 50px;
+  transition: all 0.2s;
+  outline:none;
+  cursor: pointer;
+}
+
+.back-button button:hover{
+  background-color: hsl(176, 72%, 28%);
+}
+
+.bookmark{
+  grid-area: bookmark;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  background: url(./images/icon-bookmark.svg) no-repeat;
+  background-position:center;
+  background-color: hsl(176, 72%, 28%);
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.bookmark:hover{
+  opacity: 0.7;
+}
+
+.bookmark p{
+  padding:10px 20px;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 50px;
+  color:hsl(0, 0%, 48%);
+  font-weight: 700;
+  position: relative;
+  right:-50px;
+  bottom:-5px;
+}
+
+.second-card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:"backed totalBackers daysLeft"
+  "slider slider slider";
+  gap: 30px 40px;
+}
+
+.second-card div:nth-child(1){
+  border-right:1px solid hsl(0, 0%, 48%);
+}
+
+.second-card div:nth-child(2){
+  border-right:1px solid hsl(0, 0%, 48%);
+}
+
+.slider{
+  grid-area: slider;
+  height:10px;
+  background: linear-gradient(90deg, hsl(176, 50%, 47%) 70%, hsl(0, 0%, 95%) 70%) ;
+  border-radius: 40px;
+}
+
+.last-card{
+  height: 900px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.pledge-section{
+  border:solid hsl(0, 0%, 85%) 1px;
+  border-left-color: hsl(0, 0%, 80%);
+  padding:20px;
+  display: grid;
+  grid-template-areas: "stand pledge"
+  "descTxt descTxt"
+  "remainingNUm button";
+  gap:20px 0;
+}
+
+.pledge{
+  color: hsl(176, 50%, 47%);
+  justify-self:end;
+}
+
+.pledge-section p{
+  grid-area: descTxt;
+}
+
+.pledge-section div h1{
+  display:inline;
+}
+
+.pledge-section div span{
+  position: relative;
+  top:-5px;
+  margin-left: 10px;
+}
+
+.button{
+  justify-self:end;
+}
+
+.button button{
+  padding:10px 20px;
+  border-radius: 40px;
+  background-color: hsl(176, 50%, 47%);
+  border:none;
+  outline:none;
+  color: white;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.button button:hover{
+  background-color: hsl(176, 72%, 28%);
+}
+
+.mahogany-edition{
+  opacity:0.4;
+}
+
+/* CHOOSE PLAN */
+.wrap-back-project{
+  display: none;
+  justify-content: center;
+  transition: all 0.2s;
+  filter:contrast(100%);
+}
+
+.wrap-back-project.active{
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top:150px;
+  z-index: 3;
+}
+
+.back-this-project{
+  width:800px;
+  display: flex;
+  flex-direction: column;
+  padding:20px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 100%);
+  gap:25px;
+}
+
+.close-icn{
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.choose-plan{
+  border:hsl(0, 0%, 90%) 2px solid;
+  display: grid;
+  grid-template-areas: "chk typeStandMuchPledge remainingNUm"
+  "chk descTxt descTxt"
+  "selectedPledge selectedPledge selectedPledge";
+  padding:15px;
+  gap:10px;
+}
+
+.pledge-no-reward{
+  display: grid;
+  grid-template-areas: "chk typeStand"
+  "chk descTxt";
+  border:hsl(0, 0%, 90%) 2px solid;
+  padding:20px;
+  gap:10px;
+}
+
+.pledge-no-reward label{
+  grid-area: typeStand;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.pledge-no-reward label:hover{
+  color:hsl(176, 50%, 47%);
+}
+
+.pledge-no-reward input{
+  grid-area: chk;
+}
+
+.pledge-no-reward p{
+  grid-area: descTxt;
+}
+
+.stand-pledge{
+  grid-area: typeStandMuchPledge;
+}
+
+.stand-pledge label{
+  font-weight: 700;
+  grid-area: typeStand;
+  transition: all 0.2s;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.stand-pledge label:hover{
+  color:hsl(176, 50%, 47%);
+}
+
+.stand-pledge span{
+  color:hsl(176, 50%, 47%);
+}
+
+.choose-plan p:nth-child(4){
+  grid-area: descTxt;
+}
+
+.remain-num{
+  justify-self: end;
+}
+
+.remain-num h4{
+  display: inline-block;
+  margin-right:10px;
+}
+
+.radio{
+  grid-area: chk;
+}
+
+.mahogany-edition input{
+  opacity: 0;
+}
+
+.wrap-selected-pledge{
+  grid-area:selectedPledge;
+}
+
+.selected-pledge{
+  display: grid;
+  grid-template-areas: "enterYourPledge input btn";
+  grid-template-columns: 1fr 100px 100px;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+  border-top:hsl(0, 0%, 90%) 2px solid;
+  padding-top:10px;
+}
+
+.select-bamboo{
+  display: none;
+}
+
+.select-black{
+  display: none;
+}
+
+.select-bamboo.active{
+  display: grid;
+}
+
+.select-black.active{
+  display: grid;
+}
+
+.selected-pledge input{
+  border:hsl(0, 0%, 80%) solid ;
+  border-radius: 40px;
+  outline:none;
+  padding:10px;
+  font-weight: 700;
+}
+
+.selected-pledge button{
+  border-radius: 40px;
+  outline:none;
+  padding:10px;
+  border:none;
+  color:white;
+  background-color: hsl(176, 50%, 47%);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selected-pledge button:hover{
+  background-color: hsl(176, 72%, 28%);
+}
+
+/* SUCCESS MODAL */
+.wrap-success-modal{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wrap-success-modal.active{
+  display: flex;
+  position: absolute;
+}
+
+.success-modal{
+  text-align: center;
+  border-radius: 10px;
+  padding:20px;
+  width: 400px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.success-modal h2{
+  margin:20px  0;
+}
+
+.success-modal button{
+  border:none;
+  outline:none;
+  color: white;
+  background-color: hsl(176, 50%, 47%);
+  border-radius:40px;
+  transition: all 0.2s;
+  padding:10px 30px;
+  margin-top:20px;
+  cursor: pointer;
+}
+
+.success-modal button:hover{
+  background-color: hsl(176, 72%, 28%);
+}
+
+/* RESPONSIVE */
+@media (max-width:800px){
+  body{
+    z-index: 999;
+  }
+
+  .wrapper{
+    z-index: -1;
+  }
+
+  header{
+    background:url(./images/image-hero-mobile.jpg) no-repeat;
+    background-size:cover;
+    height:300px;
+  }
+
+  .nav-wrap{
+    display: grid;
+    grid-template-columns:100%;
+    grid-template-rows:25%;
+    height:100%;
+    padding:30px 20px 0 20px;
+    background-position: 20px 30px;
+  }
+
+  .nav-wrap img{
+    justify-self:end;
+    cursor: pointer;
+  }
+
+  .hamburger-icon{
+    display: inherit;
+  }
+
+  .nav-wrap ul.active{
+    width: 100%;
+    height:200px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.2s;
+    padding: 20px;
+  }
+
+  .nav-wrap a.active{
+    display: inherit;
+    margin-left: 10px;
+  }
+
+  .nav-wrap a{
+    color: black;
+    margin:0;
+    font-weight: 700;
+    display: none;
+  }
+
+  /* RESPONSIVE MAIN */
+  main{
+    top:-80px;
+    padding:20px;
+  }
+
+  .main-card{
+    width:100%;
+  }
+
+  .top-card{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0% auto auto auto ;
+    grid-template-areas:"logo logo logo"
+    "bigtxt bigtxt bigtxt"
+    "smalltxt smalltxt smalltxt"
+    "backButton backButton bookmark";
+  }
+
+  .back-button{
+    width:100%;
+  }
+
+  .back-button button{
+    width:100%;
+  }
+
+  .bookmark p{
+    display: none;
+  }
+
+  .second-card{
+    height:400px;
+    grid-template-columns:1fr;
+    grid-template-areas:"backed"
+    "totalBackers"
+    "daysLeft"
+    "slider";
+    gap: 30px;
+    justify-items:center;
+  }
+
+  .second-card div:nth-child(1){
+    border:none;
+    border-bottom:1px solid hsl(0, 0%, 48%);
+  }
+
+  .second-card div h1{
+    text-align: center;
+  }
+
+  .second-card div:nth-child(2){
+    border:none;
+    border-bottom:1px solid hsl(0, 0%, 48%);
+  }
+
+  .slider{
+    justify-self:stretch;
+  }
+
+  .last-card{
+    height:auto;
+    gap:30px;
+  }
+
+  .pledge-section{
+    grid-template-areas: "stand"
+    "pledge"
+    "descTxt"
+    "remainingNUm"
+    "button";
+    gap:15px 0;
+  }
+
+  .pledge{
+    justify-self:start;
+  }
+
+  .button{
+    justify-self:start;
+  }
+
+/* CHOOSE PLAN */
+  .wrap-back-project{
+    padding:20px;
+  }
+
+  .choose-plan{
+    grid-template-areas: "chk typeStandMuchPledge"
+    "descTxt descTxt"
+    "remainingNUm remainingNUm"
+    "selectedPledge selectedPledge";
+    grid-template-columns: 20px auto;
+  }
+
+  .pledge-no-reward{
+    grid-template-areas: "chk typeStand"
+    "descTxt descTxt";
+    grid-template-columns: 20px auto;
+    align-items: center;
+  }
+
+  .stand-pledge p{
+    display: block;
+  }
+
+  .remain-num{
+    grid-area: remainingNUm;
+    justify-self: start;
+  }
+
+  .wrap-selected-pledge{
+    grid-area:selectedPledge;
+  }
+
+  .selected-pledge{
+    grid-template-areas: "enterYourPledge enterYourPledge"
+    "input btn";
+    grid-template-columns: 1fr 1fr;
+    justify-items:center;
+  }
+
+  .selected-pledge span{
+    grid-area: enterYourPledge;
+  }
+
+  .selected-pledge input{
+    width: 150px;
+    grid-area: input;
+  }
+
+  .selected-pledge button{
+    grid-area: btn;
+    width: 150px;
+  }
+
+}
